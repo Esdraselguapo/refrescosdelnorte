@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="css/sweetalert.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/sweetalert.js"></script>
+
+
+</head>
+<body>
+    <div class="container">
+        
+        <div class="content">
+
+            <form name="miformulario">
+
+                <img src="img/hombre.svg" alt="">
+                <h2 class="title">Bienvenido</h2>
+
+                <div class="input-div one ">
+                    <div class="i">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <h5> <label>Nombre de usuario</label> </h5>
+                        <input type="text" class="input" id="usuario">
+                    </div>
+                </div>
+
+                <div class="input-div pass">
+                    <div class="i">
+                        <i class="fa fa-lock"></i>
+                    </div>
+                    <div class="div">
+                        <h5> <label>Contraseña</label> </h5>
+                        <input type="password" type="submit" class="input" id="password">
+                    </div>
+                </div>
+
+                <a href="#">Olvidaste tu contraseña?</a>
+                <div class="boton-neon" type="button" class="btn boton" onclick="validar()" value="Validar">Validar
+                </div>
+                
+            </form>
+        </div>
+    </div>
+    <script src="js/MAIN.JS"></script>
+    <link rel="stylesheet" href="css/estilo.css">
+    <script>
+        //VARIABLE DE INTENTOS
+        var intentons = 1;
+        function validar(){
+            //VARIABLES
+            var usuario = $("#usuario").val();
+            var password = $("#password").val();
+            //VALIDAMOS INTENTOS
+            if(intentons <= 3){
+                if(usuario == "esdras" && password == "examen"){
+                    swal("Validación", "Bienvenido", "success");
+                    intentons = 1;
+                    var url = "html/incio.html"; 
+                $(location).attr('href',url);
+                }
+                else{
+                    swal("Validación", "Usuario y/o contraseña invalidos", "error");
+                    intentons++;
+                }
+            }
+            else{
+                swal("Validación", "Usuario bloqueado por exceso de intentos", "error");
+            }
+        }
+    </script>
+</body>
+</html>
